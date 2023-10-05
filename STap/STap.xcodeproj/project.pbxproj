@@ -14,6 +14,15 @@
 		AC8EF7702ACEB95E00461BD6 /* STapButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC8EF76F2ACEB95E00461BD6 /* STapButton.swift */; };
 		AC8EF7762ACEE12800461BD6 /* MusicSelectMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC8EF7752ACEE12800461BD6 /* MusicSelectMenu.swift */; };
 		AC8EF77B2ACEF25500461BD6 /* CountDown.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC8EF77A2ACEF25500461BD6 /* CountDown.swift */; };
+		F35F6F202ACEE67E00D90A86 /* CombineMoya in Frameworks */ = {isa = PBXBuildFile; productRef = F35F6F1F2ACEE67E00D90A86 /* CombineMoya */; };
+		F35F6F222ACEE67E00D90A86 /* Moya in Frameworks */ = {isa = PBXBuildFile; productRef = F35F6F212ACEE67E00D90A86 /* Moya */; };
+		F35F6F252ACEE6AF00D90A86 /* YoutubeAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = F35F6F242ACEE6AF00D90A86 /* YoutubeAPI.swift */; };
+		F35F6F282ACEEB6F00D90A86 /* ViewModelable.swift in Sources */ = {isa = PBXBuildFile; fileRef = F35F6F272ACEEB6F00D90A86 /* ViewModelable.swift */; };
+		F35F6F2A2ACEEB9B00D90A86 /* PlayerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F35F6F292ACEEB9B00D90A86 /* PlayerViewModel.swift */; };
+		F35F6F2C2ACEF1B500D90A86 /* MusicsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F35F6F2B2ACEF1B500D90A86 /* MusicsViewModel.swift */; };
+		F35F6F2F2ACEF30900D90A86 /* SongDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = F35F6F2E2ACEF30900D90A86 /* SongDTO.swift */; };
+		F35F6F322ACEF79500D90A86 /* Data+extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F35F6F312ACEF79500D90A86 /* Data+extensions.swift */; };
+		F35F6F352ACEFB2A00D90A86 /* Song.swift in Sources */ = {isa = PBXBuildFile; fileRef = F35F6F342ACEFB2A00D90A86 /* Song.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,6 +34,13 @@
 		AC8EF76F2ACEB95E00461BD6 /* STapButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STapButton.swift; sourceTree = "<group>"; };
 		AC8EF7752ACEE12800461BD6 /* MusicSelectMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicSelectMenu.swift; sourceTree = "<group>"; };
 		AC8EF77A2ACEF25500461BD6 /* CountDown.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountDown.swift; sourceTree = "<group>"; };
+		F35F6F242ACEE6AF00D90A86 /* YoutubeAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YoutubeAPI.swift; sourceTree = "<group>"; };
+		F35F6F272ACEEB6F00D90A86 /* ViewModelable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModelable.swift; sourceTree = "<group>"; };
+		F35F6F292ACEEB9B00D90A86 /* PlayerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerViewModel.swift; sourceTree = "<group>"; };
+		F35F6F2B2ACEF1B500D90A86 /* MusicsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicsViewModel.swift; sourceTree = "<group>"; };
+		F35F6F2E2ACEF30900D90A86 /* SongDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongDTO.swift; sourceTree = "<group>"; };
+		F35F6F312ACEF79500D90A86 /* Data+extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Data+extensions.swift"; sourceTree = "<group>"; };
+		F35F6F342ACEFB2A00D90A86 /* Song.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Song.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -32,6 +48,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F35F6F222ACEE67E00D90A86 /* Moya in Frameworks */,
+				F35F6F202ACEE67E00D90A86 /* CombineMoya in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -57,6 +75,11 @@
 		AC8EF7602ACEB8BC00461BD6 /* STap */ = {
 			isa = PBXGroup;
 			children = (
+				F35F6F332ACEFB2100D90A86 /* Model */,
+				F35F6F302ACEF78400D90A86 /* Extension */,
+				F35F6F2D2ACEF2FD00D90A86 /* DTO */,
+				F35F6F262ACEEB5500D90A86 /* ViewModel */,
+				F35F6F232ACEE68600D90A86 /* Network */,
 				AC8EF7612ACEB8BC00461BD6 /* STapApp.swift */,
 				AC8EF7632ACEB8BC00461BD6 /* ContentView.swift */,
 				AC8EF76F2ACEB95E00461BD6 /* STapButton.swift */,
@@ -76,6 +99,48 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
+		F35F6F232ACEE68600D90A86 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				F35F6F242ACEE6AF00D90A86 /* YoutubeAPI.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		F35F6F262ACEEB5500D90A86 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				F35F6F272ACEEB6F00D90A86 /* ViewModelable.swift */,
+				F35F6F292ACEEB9B00D90A86 /* PlayerViewModel.swift */,
+				F35F6F2B2ACEF1B500D90A86 /* MusicsViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		F35F6F2D2ACEF2FD00D90A86 /* DTO */ = {
+			isa = PBXGroup;
+			children = (
+				F35F6F2E2ACEF30900D90A86 /* SongDTO.swift */,
+			);
+			path = DTO;
+			sourceTree = "<group>";
+		};
+		F35F6F302ACEF78400D90A86 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				F35F6F312ACEF79500D90A86 /* Data+extensions.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
+		F35F6F332ACEFB2100D90A86 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				F35F6F342ACEFB2A00D90A86 /* Song.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -92,6 +157,10 @@
 			dependencies = (
 			);
 			name = STap;
+			packageProductDependencies = (
+				F35F6F1F2ACEE67E00D90A86 /* CombineMoya */,
+				F35F6F212ACEE67E00D90A86 /* Moya */,
+			);
 			productName = STap;
 			productReference = AC8EF75E2ACEB8BC00461BD6 /* STap.app */;
 			productType = "com.apple.product-type.application";
@@ -120,6 +189,9 @@
 				Base,
 			);
 			mainGroup = AC8EF7552ACEB8BC00461BD6;
+			packageReferences = (
+				F35F6F1E2ACEE67E00D90A86 /* XCRemoteSwiftPackageReference "Moya" */,
+			);
 			productRefGroup = AC8EF75F2ACEB8BC00461BD6 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -146,10 +218,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F35F6F2A2ACEEB9B00D90A86 /* PlayerViewModel.swift in Sources */,
 				AC8EF7642ACEB8BC00461BD6 /* ContentView.swift in Sources */,
 				AC8EF7702ACEB95E00461BD6 /* STapButton.swift in Sources */,
-				AC8EF77B2ACEF25500461BD6 /* CountDown.swift in Sources */,
-				AC8EF7762ACEE12800461BD6 /* MusicSelectMenu.swift in Sources */,
+				F35F6F2C2ACEF1B500D90A86 /* MusicsViewModel.swift in Sources */,
+				F35F6F352ACEFB2A00D90A86 /* Song.swift in Sources */,
+				F35F6F2F2ACEF30900D90A86 /* SongDTO.swift in Sources */,
+				F35F6F282ACEEB6F00D90A86 /* ViewModelable.swift in Sources */,
+				F35F6F322ACEF79500D90A86 /* Data+extensions.swift in Sources */,
+				F35F6F252ACEE6AF00D90A86 /* YoutubeAPI.swift in Sources */,
 				AC8EF7622ACEB8BC00461BD6 /* STapApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -349,6 +426,30 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		F35F6F1E2ACEE67E00D90A86 /* XCRemoteSwiftPackageReference "Moya" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Moya/Moya";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 15.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		F35F6F1F2ACEE67E00D90A86 /* CombineMoya */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F35F6F1E2ACEE67E00D90A86 /* XCRemoteSwiftPackageReference "Moya" */;
+			productName = CombineMoya;
+		};
+		F35F6F212ACEE67E00D90A86 /* Moya */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F35F6F1E2ACEE67E00D90A86 /* XCRemoteSwiftPackageReference "Moya" */;
+			productName = Moya;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = AC8EF7562ACEB8BC00461BD6 /* Project object */;
 }

@@ -9,9 +9,15 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        VStack(alignment: .center) {
-            STapButton(buttonSize: 320)
+        NavigationView {
+            VStack(alignment: .center) {
+                //STapButton(buttonSize: 320)
+                CountDown(buttonSize: 320)
+            }
+            .navigationBarTitleDisplayMode(.inline)
+            .navigationTitle("STap")
         }
+        
     }
 }
 

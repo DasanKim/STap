@@ -19,24 +19,25 @@ struct ContentView: View {
             }
             .navigationBarTitleDisplayMode(.inline)
             .navigationTitle("STap")
-        VStack(alignment: .center) {
-            STapButton(buttonSize: 320)
-            
-            Button {
-                viewModel.action(.selectPlaylist("PLbQKkth8Igue0EEiG3mjV0EY7MzJwdGZb"))
-            } label: {
-                Text("Youtube")
-            }
-            
-            switch viewModel.state {
-            case let .songs(songs):
-                VStack {
-                    ForEach(songs) { song in
-                        Text(song.title)
+            VStack(alignment: .center) {
+                STapButton(buttonSize: 320)
+                
+                Button {
+                    viewModel.action(.selectPlaylist("PLbQKkth8Igue0EEiG3mjV0EY7MzJwdGZb"))
+                } label: {
+                    Text("Youtube")
+                }
+                
+                switch viewModel.state {
+                case let .songs(songs):
+                    VStack {
+                        ForEach(songs) { song in
+                            Text(song.title)
+                        }
                     }
                 }
+                
             }
-
         }
         
     }

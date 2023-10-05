@@ -221,6 +221,8 @@
 				F35F6F2A2ACEEB9B00D90A86 /* PlayerViewModel.swift in Sources */,
 				AC8EF7642ACEB8BC00461BD6 /* ContentView.swift in Sources */,
 				AC8EF7702ACEB95E00461BD6 /* STapButton.swift in Sources */,
+                AC8EF77B2ACEF25500461BD6 /* CountDown.swift in Sources */,
+                AC8EF7762ACEE12800461BD6 /* MusicSelectMenu.swift in Sources */,
 				F35F6F2C2ACEF1B500D90A86 /* MusicsViewModel.swift in Sources */,
 				F35F6F352ACEFB2A00D90A86 /* Song.swift in Sources */,
 				F35F6F2F2ACEF30900D90A86 /* SongDTO.swift in Sources */,

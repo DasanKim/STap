@@ -8,15 +8,12 @@
 import SwiftUI
 
 struct STapButton: View {
-    private let buttonSize: CGFloat
-    
-    init(buttonSize: CGFloat) {
-        self.buttonSize = buttonSize
-    }
+    @Binding var isTappedPlay: Bool
+    let buttonSize: CGFloat
     
     var body: some View {
         Button {
-            
+            isTappedPlay.toggle()
         } label: {
             Image("playButton")
                 .resizable()
@@ -28,6 +25,6 @@ struct STapButton: View {
 
 struct STapButton_Previews: PreviewProvider {
     static var previews: some View {
-        STapButton(buttonSize: 300)
+        STapButton(isTappedPlay:.constant(false), buttonSize: 300)
     }
 }

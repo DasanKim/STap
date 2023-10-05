@@ -16,6 +16,8 @@ struct ContentView: View {
             VStack(alignment: .center) {
                 //STapButton(buttonSize: 320)
                 CountDown(buttonSize: 320)
+                
+                PlayerView(url: "https://www.youtube.com/watch?v=iUw3LPM7OBU")
             }
             .navigationBarTitleDisplayMode(.inline)
             .navigationTitle("STap")

@@ -23,6 +23,8 @@
 		F35F6F2F2ACEF30900D90A86 /* SongDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = F35F6F2E2ACEF30900D90A86 /* SongDTO.swift */; };
 		F35F6F322ACEF79500D90A86 /* Data+extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F35F6F312ACEF79500D90A86 /* Data+extensions.swift */; };
 		F35F6F352ACEFB2A00D90A86 /* Song.swift in Sources */ = {isa = PBXBuildFile; fileRef = F35F6F342ACEFB2A00D90A86 /* Song.swift */; };
+		F35F6F382ACF0B5700D90A86 /* YouTubePlayerKit in Frameworks */ = {isa = PBXBuildFile; productRef = F35F6F372ACF0B5700D90A86 /* YouTubePlayerKit */; };
+		F35F6F3A2ACF0C4B00D90A86 /* PlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F35F6F392ACF0C4B00D90A86 /* PlayerView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -41,6 +43,7 @@
 		F35F6F2E2ACEF30900D90A86 /* SongDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongDTO.swift; sourceTree = "<group>"; };
 		F35F6F312ACEF79500D90A86 /* Data+extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Data+extensions.swift"; sourceTree = "<group>"; };
 		F35F6F342ACEFB2A00D90A86 /* Song.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Song.swift; sourceTree = "<group>"; };
+		F35F6F392ACF0C4B00D90A86 /* PlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -50,6 +53,7 @@
 			files = (
 				F35F6F222ACEE67E00D90A86 /* Moya in Frameworks */,
 				F35F6F202ACEE67E00D90A86 /* CombineMoya in Frameworks */,
+				F35F6F382ACF0B5700D90A86 /* YouTubePlayerKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -82,6 +86,7 @@
 				F35F6F232ACEE68600D90A86 /* Network */,
 				AC8EF7612ACEB8BC00461BD6 /* STapApp.swift */,
 				AC8EF7632ACEB8BC00461BD6 /* ContentView.swift */,
+				F35F6F392ACF0C4B00D90A86 /* PlayerView.swift */,
 				AC8EF76F2ACEB95E00461BD6 /* STapButton.swift */,
 				AC8EF7752ACEE12800461BD6 /* MusicSelectMenu.swift */,
 				AC8EF77A2ACEF25500461BD6 /* CountDown.swift */,
@@ -160,6 +165,7 @@
 			packageProductDependencies = (
 				F35F6F1F2ACEE67E00D90A86 /* CombineMoya */,
 				F35F6F212ACEE67E00D90A86 /* Moya */,
+				F35F6F372ACF0B5700D90A86 /* YouTubePlayerKit */,
 			);
 			productName = STap;
 			productReference = AC8EF75E2ACEB8BC00461BD6 /* STap.app */;
@@ -191,6 +197,7 @@
 			mainGroup = AC8EF7552ACEB8BC00461BD6;
 			packageReferences = (
 				F35F6F1E2ACEE67E00D90A86 /* XCRemoteSwiftPackageReference "Moya" */,
+				F35F6F362ACF0B5700D90A86 /* XCRemoteSwiftPackageReference "YouTubePlayerKit" */,
 			);
 			productRefGroup = AC8EF75F2ACEB8BC00461BD6 /* Products */;
 			projectDirPath = "";
@@ -221,10 +228,11 @@
 				F35F6F2A2ACEEB9B00D90A86 /* PlayerViewModel.swift in Sources */,
 				AC8EF7642ACEB8BC00461BD6 /* ContentView.swift in Sources */,
 				AC8EF7702ACEB95E00461BD6 /* STapButton.swift in Sources */,
-                AC8EF77B2ACEF25500461BD6 /* CountDown.swift in Sources */,
-                AC8EF7762ACEE12800461BD6 /* MusicSelectMenu.swift in Sources */,
+				AC8EF77B2ACEF25500461BD6 /* CountDown.swift in Sources */,
+				AC8EF7762ACEE12800461BD6 /* MusicSelectMenu.swift in Sources */,
 				F35F6F2C2ACEF1B500D90A86 /* MusicsViewModel.swift in Sources */,
 				F35F6F352ACEFB2A00D90A86 /* Song.swift in Sources */,
+				F35F6F3A2ACF0C4B00D90A86 /* PlayerView.swift in Sources */,
 				F35F6F2F2ACEF30900D90A86 /* SongDTO.swift in Sources */,
 				F35F6F282ACEEB6F00D90A86 /* ViewModelable.swift in Sources */,
 				F35F6F322ACEF79500D90A86 /* Data+extensions.swift in Sources */,
@@ -438,6 +446,14 @@
 				minimumVersion = 15.0.0;
 			};
 		};
+		F35F6F362ACF0B5700D90A86 /* XCRemoteSwiftPackageReference "YouTubePlayerKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SvenTiigi/YouTubePlayerKit";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -450,6 +466,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = F35F6F1E2ACEE67E00D90A86 /* XCRemoteSwiftPackageReference "Moya" */;
 			productName = Moya;
+		};
+		F35F6F372ACF0B5700D90A86 /* YouTubePlayerKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F35F6F362ACF0B5700D90A86 /* XCRemoteSwiftPackageReference "YouTubePlayerKit" */;
+			productName = YouTubePlayerKit;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

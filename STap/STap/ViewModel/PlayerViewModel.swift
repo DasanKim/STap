@@ -9,36 +9,59 @@ import SwiftUI
 import Combine
 
 final class PlayerViewModel: ViewModelable {
-    enum playingState {
-        case playing
-        case pause
-        case wait
-    }
     
     enum Action {
         case tappedPlayButton
         case tappedStopButton
         case tappedNextMusicButton
+        case startCountDown
+        case showResult
     }
     
     enum State {
-        case playing(playingState)
+        case playing
+        case result
+        case countDown
+        case pause
+        case wait(Song?)
     }
     
     @Published var state: State
     
-    init() {
-        state = .playing(.wait)
+    var songs: [Song]
+    
+    init(songs: [Song]) {
+        self.songs = songs
+
+        let song = self.songs.popFirst()
+        state = .wait(song)
+        
     }
     
     func action(_ action: Action) {
         switch action {
         case .tappedPlayButton:
-            state = .playing(.playing)
+            state = .playing
         case .tappedStopButton:
-            state = .playing(.pause)
+            state = .pause
         case .tappedNextMusicButton:
-            state = .playing(.wait)
+            let song = self.songs.popFirst()
+            state = .wait(song)
+        case .startCountDown:
+            state = .countDown
+        case .showResult:
+            state = .result
+        }
+    }
+}
+
+extension Array {
+    @inlinable
+    public mutating func popFirst() -> Element? {
+        if isEmpty {
+            return nil
+        } else {
+            return removeFirst()
         }
     }
 }

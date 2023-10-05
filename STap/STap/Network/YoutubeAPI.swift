@@ -40,7 +40,7 @@ extension GitHub: TargetType {
             return .requestParameters(
                 parameters: [
                     "part": "snippet",
-                    "maxResults": "5",
+                    "maxResults": "50",
                     "playlistId": param,
                     "key": key
                 ],

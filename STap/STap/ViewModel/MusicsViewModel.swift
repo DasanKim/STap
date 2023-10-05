@@ -36,10 +36,12 @@ final class MusicsViewModel: ViewModelable {
                         let data = try getPlaylistResponse.data.decode(GetPlaylistSongsDTO.self)
                         
                         let songs = data.items.map {
-                            Song(title: $0.snippet.title, videoId: $0.snippet.resourceId.videoId)
-                        }
+                            Song(title: $0.snippet.title, videoId: "https://www.youtube.com/watch?v=\($0.snippet.resourceId.videoId)")
+                        }.shuffled().prefix(10)
                         
-                        self.state = .songs(songs)
+                        print(songs)
+                        
+                        self.state = .songs(Array(songs))
                     } catch {
                         print(error)
                     }

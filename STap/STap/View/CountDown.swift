@@ -7,14 +7,15 @@
 
 import SwiftUI
 
-struct CountDown: View {
+struct CountDownView: View {
     let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
     @State private var count: Int = 1
-    @State private var isTapped: Bool = false
-    private let buttonSize: CGFloat
+    private let buttonSize: CGFloat = 320
     
-    init(buttonSize: CGFloat) {
-        self.buttonSize = buttonSize
+    let completion: () -> Void
+    
+    init(completion: @escaping () -> Void) {
+        self.completion = completion
     }
     
     var body: some View {
@@ -33,40 +34,31 @@ struct CountDown: View {
                     .resizable()
                     .frame(width: buttonSize, height: buttonSize)
             default:
-                Button {
-                    isTapped.toggle()
-                    // 일시정지 되면서 새로운 버튼 뜸.
-                } label: {
-                    Rectangle()
-                        .fill(Color("stapGreen"))
-                        .overlay {
-                            Circle()
-                                .fill()
-                                .animation(.easeIn.repeatForever(), value: isTapped)
-                        }
-                }
+                Color.clear
             }
         }
         .onReceive(timer) { value in
             withAnimation(.easeInOut(duration: 0.01)) {
-                if count <= 3 {
-                    count += 1
+                if count == 3 {
+                    cancelTimer()
+                    completion()
+                    count = 1
                 } else {
-                    cancelTimer {
-                        //
-                    }
+                    count += 1
                 }
             }
         }
     }
     
-    func cancelTimer(completion: @escaping () -> Void) {
+    func cancelTimer() {
         timer.upstream.connect().cancel()
     }
 }
 
 struct CountDown_Previews: PreviewProvider {
     static var previews: some View {
-        CountDown(buttonSize: 300)
+        CountDownView {
+            
+        }
     }
 }

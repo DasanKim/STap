@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct ContentView: View {
+    
+    
     var body: some View {
         NavigationView {
             VStack(alignment: .center) {
@@ -16,6 +18,17 @@ struct ContentView: View {
             }
             .navigationBarTitleDisplayMode(.inline)
             .navigationTitle("STap")
+        VStack(alignment: .center) {
+            STapButton(buttonSize: 320)
+            
+            Button {
+                youtubeProvider.request(.playlist("PL4fGSI1pDJn5S09aId3dUGp40ygUqmPGc")) { result in
+                    print(result)
+                }
+            } label: {
+                Text("Youtube")
+            }
+
         }
         
     }

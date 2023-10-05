@@ -2,7 +2,7 @@
 //  STapButton.swift
 //  STap
 //
-//  Created by Yena on 2023/10/05.
+//  Created by STap UP on 2023/10/05.
 //
 
 import SwiftUI
@@ -15,22 +15,19 @@ struct STapButton: View {
     }
     
     var body: some View {
-//        GeometryReader { geometry in
-//        }
-        RoundedRectangle(cornerRadius: 20)
-            .stroke(Color.green)
-            .frame(width: buttonSize,
-                   height: buttonSize)
-            .shadow(radius: 3)
-            .overlay {
-                RoundedRectangle(cornerRadius: 20)
-                    .fill(Color.green)
-            }
+        Button {
+            
+        } label: {
+            Image("playButton")
+                .resizable()
+        }
+        .frame(width: buttonSize, height: buttonSize)
+
     }
 }
 
 struct STapButton_Previews: PreviewProvider {
     static var previews: some View {
-        STapButton(buttonSize: 320)
+        STapButton(buttonSize: 300)
     }
 }

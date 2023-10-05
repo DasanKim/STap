@@ -12,6 +12,8 @@
 		AC8EF7662ACEB8BD00461BD6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AC8EF7652ACEB8BD00461BD6 /* Assets.xcassets */; };
 		AC8EF7692ACEB8BD00461BD6 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AC8EF7682ACEB8BD00461BD6 /* Preview Assets.xcassets */; };
 		AC8EF7702ACEB95E00461BD6 /* STapButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC8EF76F2ACEB95E00461BD6 /* STapButton.swift */; };
+		AC8EF7762ACEE12800461BD6 /* MusicSelectMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC8EF7752ACEE12800461BD6 /* MusicSelectMenu.swift */; };
+		AC8EF77B2ACEF25500461BD6 /* CountDown.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC8EF77A2ACEF25500461BD6 /* CountDown.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -21,6 +23,8 @@
 		AC8EF7652ACEB8BD00461BD6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AC8EF7682ACEB8BD00461BD6 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		AC8EF76F2ACEB95E00461BD6 /* STapButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STapButton.swift; sourceTree = "<group>"; };
+		AC8EF7752ACEE12800461BD6 /* MusicSelectMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicSelectMenu.swift; sourceTree = "<group>"; };
+		AC8EF77A2ACEF25500461BD6 /* CountDown.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountDown.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +60,8 @@
 				AC8EF7612ACEB8BC00461BD6 /* STapApp.swift */,
 				AC8EF7632ACEB8BC00461BD6 /* ContentView.swift */,
 				AC8EF76F2ACEB95E00461BD6 /* STapButton.swift */,
+				AC8EF7752ACEE12800461BD6 /* MusicSelectMenu.swift */,
+				AC8EF77A2ACEF25500461BD6 /* CountDown.swift */,
 				AC8EF7652ACEB8BD00461BD6 /* Assets.xcassets */,
 				AC8EF7672ACEB8BD00461BD6 /* Preview Content */,
 			);
@@ -142,6 +148,8 @@
 			files = (
 				AC8EF7642ACEB8BC00461BD6 /* ContentView.swift in Sources */,
 				AC8EF7702ACEB95E00461BD6 /* STapButton.swift in Sources */,
+				AC8EF77B2ACEF25500461BD6 /* CountDown.swift in Sources */,
+				AC8EF7762ACEE12800461BD6 /* MusicSelectMenu.swift in Sources */,
 				AC8EF7622ACEB8BC00461BD6 /* STapApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

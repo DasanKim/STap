@@ -8,20 +8,16 @@
 import SwiftUI
 
 struct ContentView: View {
-    
     var body: some View {
         
         ZStack {
+            Color("background").edgesIgnoringSafeArea(.all)
             HeaderView()
             
             VStack {
                 MusicSelectMenu(viewModel: .init())
-                
-                
             }
             .padding(.top, 30)
-            
-            
         }
     }
 }

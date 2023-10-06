@@ -16,6 +16,7 @@ struct suspendingRectangle: View {
             .frame(width: 200, height: 90)
             .shadow(radius: 3)
             .overlay {
+                
                 Text(title)
                     .font(Font.system(size: 20, weight: .semibold))
                     .foregroundColor(Color("purple"))

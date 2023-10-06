@@ -71,12 +71,16 @@ struct PlayerView: View {
                         .cornerRadius(12)
                         .padding(.all, 30)
                     
-                    VStack {
+                    VStack(spacing: 10) {
                         Button {
                             viewModel.action(.tappedPlayButton)
                             youTubePlayer.play()
                         } label: {
-                            suspendingRectangle(title: "이어서 듣기")
+                            Image("Play")
+                                .resizable()
+                                .frame(width: 50, height: 50)
+                                .foregroundColor(Color.white)
+                                .padding(.all, 30)
                         }
                         
                         Button {
@@ -84,13 +88,21 @@ struct PlayerView: View {
                             youTubePlayer.stop()
                             youTubePlayer.play()
                         } label: {
-                            suspendingRectangle(title: "처음부터 다시 듣기")
+                            Image("Repeat")
+                                .resizable()
+                                .frame(width: 50, height: 50)
+                                .foregroundColor(Color.white)
+                                .padding(.all, 50)
                         }
                         
                         Button {
                             viewModel.action(.showResult)
                         } label: {
-                            suspendingRectangle(title: "결과 보기")
+                            Image("Album")
+                                .resizable()
+                                .frame(width: 50, height: 50)
+                                .foregroundColor(Color.white)
+                                .padding(.all, 50)
                         }
                     }
                 }

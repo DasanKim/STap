@@ -9,6 +9,10 @@ import SwiftUI
 import YouTubePlayerKit
 
 struct PlayerView: View {
+    @State var isAnimation = false
+    private let animation = Animation.easeInOut(duration: 1).repeatForever(autoreverses: true)
+    private let maxScale: CGFloat = 1.5
+    
 
     @StateObject
     var youTubePlayer = YouTubePlayer(source: nil)
@@ -20,12 +24,13 @@ struct PlayerView: View {
         
         VStack {
             HStack {
-                Text("\(viewModel.songs.count)")
-                    .font(Font.system(size: 15, weight: .semibold))
+                Text("\(10-viewModel.songs.count) Round")
+                    .font(Font.system(size: 30, weight: .semibold))
+                    .foregroundColor(Color.white)
                 
-                Spacer()
+                //Spacer()
             }
-            .padding(.leading, 10)
+            //.padding(.leading, 10)
             
             switch viewModel.state {
             case let .wait(song):
@@ -50,48 +55,55 @@ struct PlayerView: View {
                     viewModel.action(.tappedPlayButton)
                 }
             case .pause:
-                
-                VStack {
-                    Button {
-                        viewModel.action(.tappedPlayButton)
-                        youTubePlayer.play()
-                    } label: {
-                        VStack {
-                            Text("이어서 듣기")
-                                .font(Font.system(size: 15, weight: .semibold))
-                                .foregroundColor(Color.white)
-                                .padding(.vertical, 19)
+                ZStack {
+                    Rectangle()
+                        .fill(Color("darkGreen"))
+                    VStack {
+                        Button {
+                            viewModel.action(.tappedPlayButton)
+                            youTubePlayer.play()
+                        } label: {
+                            suspendingRectangle(title: "이어서 듣기")
+//                            VStack {
+//
+//                                Text("이어서 듣기")
+//                                    .font(Font.system(size: 15, weight: .semibold))
+//                                    .foregroundColor(Color.white)
+//                                    .padding(.vertical, 19)
+//                            }
+//                            .background(Color.gray)
+//                            .cornerRadius(20)
                         }
-                        .background(Color.gray)
-                        .cornerRadius(20)
-                    }
-                    
-                    Button {
-                        viewModel.action(.tappedPlayButton)
-                        youTubePlayer.stop()
-                        youTubePlayer.play()
-                    } label: {
-                        VStack {
-                            Text("처음부터 다시 듣기")
-                                .font(Font.system(size: 15, weight: .semibold))
-                                .foregroundColor(Color.white)
-                                .padding(.vertical, 19)
+                        
+                        Button {
+                            viewModel.action(.tappedPlayButton)
+                            youTubePlayer.stop()
+                            youTubePlayer.play()
+                        } label: {
+                            suspendingRectangle(title: "처음부터 다시 듣기")
+//                            VStack {
+//                                Text("처음부터 다시 듣기")
+//                                    .font(Font.system(size: 15, weight: .semibold))
+//                                    .foregroundColor(Color.white)
+//                                    .padding(.vertical, 19)
+//                            }
+//                            .background(Color.gray)
+//                            .cornerRadius(20)
                         }
-                        .background(Color.gray)
-                        .cornerRadius(20)
-                    }
-                    
-                    Button {
-                        viewModel.action(.showResult)
-                    } label: {
-                        VStack {
-                            Text("결과 보기")
-                                .font(Font.system(size: 15, weight: .semibold))
-                                .foregroundColor(Color.white)
-                                .padding(.vertical, 19)
+                        
+                        Button {
+                            viewModel.action(.showResult)
+                        } label: {
+                            suspendingRectangle(title: "결과 보기")
+//                            VStack {
+//                                Text("결과 보기")
+//                                    .font(Font.system(size: 15, weight: .semibold))
+//                                    .foregroundColor(Color.white)
+//                                    .padding(.vertical, 19)
+//                            }
+//                            .background(Color.gray)
+//                            .cornerRadius(20)
                         }
-                        .background(Color.gray)
-                        .cornerRadius(20)
                     }
                 }
 
@@ -100,25 +112,48 @@ struct PlayerView: View {
                     viewModel.action(.tappedStopButton)
                     youTubePlayer.pause()
                 } label: {
-                    VStack {
-                        Text("일시정지")
+                    ZStack {
+                        Rectangle()
+                            .fill(Color("purple"))
+                            .scaleEffect(isAnimation ? maxScale : 1)
+                            .onAppear {
+                                withAnimation(self.animation, {
+                                    self.isAnimation.toggle()
+                                })
+                            }
+                        Text("")
                             .font(Font.system(size: 15, weight: .semibold))
                             .foregroundColor(Color.white)
                             .padding(.vertical, 19)
                     }
-                    .background(Color.gray)
+                    
+//                    VStack {
+//                        Text("일시정지")
+//                            .font(Font.system(size: 15, weight: .semibold))
+//                            .foregroundColor(Color.white)
+//                            .padding(.vertical, 19)
+//                    }
+//                    .background(Color.gray)
                 }
             case .result:
                 Button {
                     viewModel.action(.tappedNextMusicButton)
                 } label: {
-                    VStack {
+                    ZStack {
+                        Rectangle()
+                            .fill(Color("stapGreen"))
                         Text(currentSong?.title ?? "오류")
                             .font(Font.system(size: 15, weight: .semibold))
                             .foregroundColor(Color.black)
                             .padding(.vertical, 19)
                     }
-                    .background(Color.gray)
+//                    VStack {
+//                        Text(currentSong?.title ?? "오류")
+//                            .font(Font.system(size: 15, weight: .semibold))
+//                            .foregroundColor(Color.black)
+//                            .padding(.vertical, 19)
+//                    }
+//                    .background(Color.gray)
                 }
                 
                 
@@ -127,8 +162,6 @@ struct PlayerView: View {
             YouTubePlayerView(self.youTubePlayer)
             .frame(height: 0)
         }
-        
-        
     }
 }
 

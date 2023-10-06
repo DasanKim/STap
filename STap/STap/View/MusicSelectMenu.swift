@@ -28,15 +28,15 @@ struct MusicSelectMenu: View {
         VStack {
             VStack {
                 HStack {
-                    Text("Categories")
+                    Text("")//"Categories")
                         .font(Font.system(size: 15, weight: .semibold))
                         .foregroundColor(Color("swhite"))
                         .padding(.top, 20)
-                    
+
                     Spacer()
                 }
                 .padding(.leading, 20)
-                
+
                 ScrollView(.horizontal, showsIndicators: false) {
                     HStack {
                         ForEach(categories, id: \.title) { category in
@@ -48,13 +48,13 @@ struct MusicSelectMenu: View {
                                     
                                     Text(category.title)
                                         .foregroundColor(Color("background"))
-                                        .font(Font.system(size: 12, weight: .semibold))
+                                        .font(Font.system(size: 18, weight: .semibold))
                                         .padding(.horizontal, 10)
                                         .padding(.vertical, 10)
                                 }
-                                .frame(width: 100, height: 30)
+                                .frame(width: 150, height: 50)
                                 .background(Color("syellow"))
-                                .cornerRadius(10)
+                                .cornerRadius(7)
                             }
                         }
                     }

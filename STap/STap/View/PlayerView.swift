@@ -11,7 +11,7 @@ import YouTubePlayerKit
 struct PlayerView: View {
     @State var isAnimation = false
     private let animation = Animation.easeInOut(duration: 1).repeatForever(autoreverses: true)
-    private let maxScale: CGFloat = 1.5
+    private let maxScale: CGFloat = 1.3
     
 
     @StateObject
@@ -22,15 +22,25 @@ struct PlayerView: View {
     
     var body: some View {
         
-        VStack {
-            HStack {
-                Text("\(10-viewModel.songs.count) Round")
-                    .font(Font.system(size: 30, weight: .semibold))
-                    .foregroundColor(Color.white)
+        ZStack {
+            VStack {
+                HStack {
+                    if viewModel.songs.isEmpty {
+                        Text("노래를 선택해주세요")
+                            .font(Font.system(size: 20, weight: .semibold))
+                            .foregroundColor(Color.white)
+                    } else {
+                        Text("\(viewModel.categoryTitle) - \(10-viewModel.songs.count) Round")
+                            .font(Font.system(size: 20, weight: .semibold))
+                            .foregroundColor(Color.white)
+                            .padding(.horizontal, 20)
+                    }
+                }
+                .frame(height: 40)
                 
-                //Spacer()
+                Spacer()
             }
-            //.padding(.leading, 10)
+            
             
             switch viewModel.state {
             case let .wait(song):
@@ -57,22 +67,16 @@ struct PlayerView: View {
             case .pause:
                 ZStack {
                     Rectangle()
-                        .fill(Color("darkGreen"))
+                        .fill(Color("purple"))
+                        .cornerRadius(12)
+                        .padding(.all, 30)
+                    
                     VStack {
                         Button {
                             viewModel.action(.tappedPlayButton)
                             youTubePlayer.play()
                         } label: {
                             suspendingRectangle(title: "이어서 듣기")
-//                            VStack {
-//
-//                                Text("이어서 듣기")
-//                                    .font(Font.system(size: 15, weight: .semibold))
-//                                    .foregroundColor(Color.white)
-//                                    .padding(.vertical, 19)
-//                            }
-//                            .background(Color.gray)
-//                            .cornerRadius(20)
                         }
                         
                         Button {
@@ -81,31 +85,16 @@ struct PlayerView: View {
                             youTubePlayer.play()
                         } label: {
                             suspendingRectangle(title: "처음부터 다시 듣기")
-//                            VStack {
-//                                Text("처음부터 다시 듣기")
-//                                    .font(Font.system(size: 15, weight: .semibold))
-//                                    .foregroundColor(Color.white)
-//                                    .padding(.vertical, 19)
-//                            }
-//                            .background(Color.gray)
-//                            .cornerRadius(20)
                         }
                         
                         Button {
                             viewModel.action(.showResult)
                         } label: {
                             suspendingRectangle(title: "결과 보기")
-//                            VStack {
-//                                Text("결과 보기")
-//                                    .font(Font.system(size: 15, weight: .semibold))
-//                                    .foregroundColor(Color.white)
-//                                    .padding(.vertical, 19)
-//                            }
-//                            .background(Color.gray)
-//                            .cornerRadius(20)
                         }
                     }
                 }
+                .padding(.top, 40)
 
             case .playing:
                 Button {
@@ -126,35 +115,33 @@ struct PlayerView: View {
                             .foregroundColor(Color.white)
                             .padding(.vertical, 19)
                     }
-                    
-//                    VStack {
-//                        Text("일시정지")
-//                            .font(Font.system(size: 15, weight: .semibold))
-//                            .foregroundColor(Color.white)
-//                            .padding(.vertical, 19)
-//                    }
-//                    .background(Color.gray)
                 }
             case .result:
-                Button {
-                    viewModel.action(.tappedNextMusicButton)
-                } label: {
-                    ZStack {
-                        Rectangle()
-                            .fill(Color("stapGreen"))
-                        Text(currentSong?.title ?? "오류")
+                VStack(spacing: 20) {
+                    AsyncImage(url: currentSong?.imageURL)
+                                .frame(width: 320, height: 180)
+                                .cornerRadius(15)
+                    
+                    Text(currentSong?.title ?? "오류")
+                        .font(Font.system(size: 15, weight: .semibold))
+                        .foregroundColor(Color.white)
+                        .padding(.horizontal, 30)
+                    
+                    Button {
+                        viewModel.action(.tappedNextMusicButton)
+                    } label: {
+                        
+                        Text("다음 노래")
                             .font(Font.system(size: 15, weight: .semibold))
-                            .foregroundColor(Color.black)
-                            .padding(.vertical, 19)
+                            .foregroundColor(Color.white)
+                            .padding(.horizontal, 20)
+                            .padding(.vertical, 10)
+                            .background(Color("stapGreen"))
+                            .cornerRadius(12)
+                        
                     }
-//                    VStack {
-//                        Text(currentSong?.title ?? "오류")
-//                            .font(Font.system(size: 15, weight: .semibold))
-//                            .foregroundColor(Color.black)
-//                            .padding(.vertical, 19)
-//                    }
-//                    .background(Color.gray)
                 }
+                .padding(.top, 40)
                 
                 
             }
@@ -167,6 +154,6 @@ struct PlayerView: View {
 
 struct PlayerView_Previews: PreviewProvider {
     static var previews: some View {
-        PlayerView(viewModel: .init(songs: []))
+        PlayerView(viewModel: .init(categoryTitle: "인기", songs: []))
     }
 }

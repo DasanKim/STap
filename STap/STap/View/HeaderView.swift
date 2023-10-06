@@ -13,6 +13,7 @@ struct HeaderView: View {
             HStack {
                 Text("STap")
                     .font(Font.system(size: 28, weight: .semibold))
+                    .foregroundColor(Color("swhite"))
                     .padding(.leading, 20)
                     .padding(.top, 20)
                 

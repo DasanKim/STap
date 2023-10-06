@@ -18,25 +18,54 @@ struct MusicSelectMenu: View {
     @ObservedObject var viewModel: MusicsViewModel
     
     let categories: [Category] = [
-        Category(title: "최신 음악 TOP 100", url: "PL4fGSI1pDJn6jXS_Tv_N9B8Z0HTRVJE0m"),
-        Category(title: "2010년대 가요", url: "PLGR97r28jSO6Uo9ZarSNbbnN2kxjlVdeT"),
-        Category(title: "2000년대 가요", url: "PLbQKkth8Igue0EEiG3mjV0EY7MzJwdGZb")
+        Category(title: "최신 음악", url: "PL4fGSI1pDJn6jXS_Tv_N9B8Z0HTRVJE0m"),
+        Category(title: "2010년대 가요", url: "PLqYXnjkoLTa9dFhDL7ZU7zgp4Sleer-ZY"),
+        Category(title: "만화 주제가", url: "PLqYXnjkoLTa9kq9BpotoLA7oRZXXRLHAP")
     ]
         
     var body: some View {
         
         VStack {
-            Menu("Music Select") {
-                ForEach(categories, id: \.title) { category in
-                    Button(category.title) {
-                        viewModel.action(.selectPlaylist(category.url))
+            VStack {
+                HStack {
+                    Text("Categories")
+                        .font(Font.system(size: 15, weight: .semibold))
+                        .foregroundColor(Color("swhite"))
+                        .padding(.top, 20)
+                    
+                    Spacer()
+                }
+                .padding(.leading, 20)
+                
+                ScrollView(.horizontal, showsIndicators: false) {
+                    HStack {
+                        ForEach(categories, id: \.title) { category in
+                            
+                            Button {
+                                viewModel.action(.selectPlaylist(category))
+                            } label: {
+                                VStack(spacing: 10) {
+                                    
+                                    Text(category.title)
+                                        .foregroundColor(Color("background"))
+                                        .font(Font.system(size: 12, weight: .semibold))
+                                        .padding(.horizontal, 10)
+                                        .padding(.vertical, 10)
+                                }
+                                .frame(width: 100, height: 30)
+                                .background(Color("syellow"))
+                                .cornerRadius(10)
+                            }
+                        }
                     }
+                    .padding(.horizontal, 20)
                 }
             }
             
             switch viewModel.state {
-            case let .songs(songList):
-                PlayerView(viewModel: .init(songs: songList))
+            case .songs(let title, let songList):
+                PlayerView(viewModel: .init(categoryTitle: title, songs: songList))
+                    .frame(maxHeight: .infinity)
                     .padding(.vertical, 20)
                     .padding(.bottom, 20)
             }

@@ -28,9 +28,11 @@ final class PlayerViewModel: ViewModelable {
     
     @Published var state: State
     
+    var categoryTitle: String
     var songs: [Song]
     
-    init(songs: [Song]) {
+    init(categoryTitle: String ,songs: [Song]) {
+        self.categoryTitle = categoryTitle
         self.songs = songs
 
         let song = self.songs.popFirst()

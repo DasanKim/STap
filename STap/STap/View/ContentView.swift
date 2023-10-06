@@ -12,12 +12,13 @@ struct ContentView: View {
         
         ZStack {
             Color("background").edgesIgnoringSafeArea(.all)
+            
             HeaderView()
             
             VStack {
                 MusicSelectMenu(viewModel: .init())
             }
-            .padding(.top, 30)
+            .padding(.top, 50)
         }
     }
 }

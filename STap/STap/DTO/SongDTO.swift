@@ -20,15 +20,16 @@ struct SongDTO: Response {
 struct SongSnippetDTO: Response {
     let channelId: String
     let title: String
+    let thumbnails: ThumbnailsDTO
     let resourceId: SongResourceDTO
 }
 
 struct ThumbnailsDTO: Response {
-    let standard: ImageUrlDTO
+    let medium: ImageUrlDTO
 }
 
 struct ImageUrlDTO: Response {
-    let url: String
+    let url: URL
 }
 
 struct SongResourceDTO: Response {
